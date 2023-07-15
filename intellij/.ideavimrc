@@ -1,0 +1,67 @@
+set number 
+set relativenumber
+set idearefactormode=keep
+set ideajoin
+set clipboard+=unnamed
+set commentary
+set scrolloff=8
+
+let mapleader = " "
+
+noremap <Esc> <nop>
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
+nnoremap <C-j> :m +1<CR>
+nnoremap <C-k> :m -2<CR> 
+inoremap <C-j> <Esc>:m +1<CR>
+inoremap <C-k> <Esc>:m -2<CR>gi
+vnoremap <leader>p "_dP
+" Map fb to find back inline, traverse back to the start of the line to find desire character
+" Map esc to esc and go right since esc in Intelij move the cursor back to the left 1 character
+inoremap <Esc> <Esc>l
+" Map u to uu since undo in Intelij require uu
+nnoremap u uu
+
+" Map key to paste a group of words to new line below or above current line
+nnoremap p] :pu<CR>e
+nnoremap p[ kpj
+
+" Map r'" to replace all single quote global to double quote
+nnoremap r'" :%s/\'/"/g<CR>
+
+" Map r"' to replace all double quote global to single quote
+nnoremap r"' :%s/\"/'/g<CR>
+
+" Map r{( to replace all curly braces to parentheses
+nnoremap r{( :s/{/(/g<CR>:s/}/)/g<CR>
+
+" Map vw to yank a word"
+"nnoremap vw bve
+
+" system clipboard
+vmap <leader>y "+y
+"vmap <leader>d "+d
+"nmap <leader>p "+p
+"nmap <leader>P "+P
+"vmap <leader>p "+p
+"vmap <leader>P "+P
+
+" scrolling
+nmap <leader>d <C-d>
+nmap <leader>u <C-u>
+"vmap <leader>d <C-d>
+"vmap <leader>u <C-u>
+""
+nmap <leader>h :action PreviousTab<CR>
+nmap <leader>l :action NextTab<CR>
+nmap <leader>bd :action CloseEditor<CR>
+nnoremap <leader><leader> <C-Tab>
+
+
+" extensions
+set surround
+
+set NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'

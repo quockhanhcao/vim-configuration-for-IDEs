@@ -1,0 +1,127 @@
+{
+  "files.autoSave": "afterDelay",
+  "extensions.ignoreRecommendations": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.editor.enablePreview": false,
+  "html.format.enable": false,
+  "html.format.preserveNewLines": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontSize": 16,
+  "editor.lineNumbers": "relative",
+  "editor.cursorSurroundingLines": 12,
+  "vim.easymotion": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.sneak": true,
+  "vim.easymotionMarkerBackgroundColor": "#020202",
+
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["J"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["Enter"],
+      "commands": ["editor.action.insertLineAfter"]
+    },
+    {
+      "before": ["<leader>", "q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.splitEditor"]
+    },
+    {
+        "before": ["<C-a>"],
+        "after": ["g", "g", "V", "G"]
+    }
+  ],
+
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["H"],
+      "commands": ["workbench.action.focusFirstEditorGroup"]
+    },
+    {
+      "before": ["L"],
+      "commands": ["workbench.action.focusSecondEditorGroup"]
+    },
+    {
+      "before": ["p", "]"],
+      "after": [":", "p", "u", "Enter", "e"]
+    },
+    {
+      "before": ["p", "["],
+      "after": ["k", "p", "j"]
+    }
+  ],
+
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["leader", "y"],
+      "after": ["\"", "+", "y"]
+    }
+  ],
+
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["leader", "p"],
+      "after": ["\"", "+", "p"]
+    }
+  ],
+
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-a>": true,
+    "<C-f>": false,
+    "<C-z>": false,
+    "<C-v>": false,
+    "<C-x>": false,
+    "<C-n>": false,
+    "<C-s>": false,
+    "<C-w>": false,
+    "<C-b>": false,
+    "<C-h>": false,
+  },
+
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "workbench.colorTheme": "Dracula Soft",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.confirmDragAndDrop": false,
+  "workbench.startupEditor": "none",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "update.showReleaseNotes": false,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "explorer.confirmDelete": false,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.singleQuote": true
+}
