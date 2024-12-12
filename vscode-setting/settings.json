@@ -1,31 +1,14 @@
 {
-  "files.autoSave": "afterDelay",
-  "extensions.ignoreRecommendations": true,
-  "terminal.integrated.enableMultiLinePasteWarning": false,
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "workbench.editor.enablePreview": false,
-  "html.format.enable": false,
-  "html.format.preserveNewLines": false,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.fontSize": 16,
-  "editor.lineNumbers": "relative",
-  "editor.cursorSurroundingLines": 12,
+  // Configuration for vim extension
+  "vim.leader": "<space>",
   "vim.easymotion": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
-  "vim.hlsearch": true,
   "vim.sneak": true,
+  "vim.hlsearch": true,
   "vim.easymotionMarkerBackgroundColor": "#020202",
 
+  // Keybindings in normal mode
   "vim.normalModeKeyBindings": [
     {
       "before": ["J"],
@@ -39,18 +22,67 @@
       "before": ["Enter"],
       "commands": ["editor.action.insertLineAfter"]
     },
+
     {
-      "before": ["<leader>", "q"],
-      "commands": ["workbench.action.closeActiveEditor"]
+      "before": ["<leader>", "a"],
+      "after": ["g", "g", "V", "G"]
     },
     {
-      "before": ["<leader>", "w"],
+      "before": ["<leader>", "b"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["editor.action.commentLine"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["actions.find"]
+    },
+    {
+      "before": ["<leader>", "g"],
+      "commands": ["workbench.view.scm"]
+    },
+    // {
+    //   "before": ["?"],
+    //   "commands": ["actions.find"]
+    // },
+    {
+      "before": ["<leader>", "i"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["<leader>", "r"],
+      "commands": ["redo"]
+    },
+    {
+      "before": ["<leader>", "s"],
       "commands": ["workbench.action.splitEditor"]
     },
     {
-        "before": ["<C-a>"],
-        "after": ["g", "g", "V", "G"]
-    }
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.terminal.toggleTerminal"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+        "before": ["<leader>", "q"],
+        "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "R"],
+      "commands": ["workbench.action.closeEditorsToTheRight"]
+    },
+    {
+      "before": ["<leader>", "L"],
+      "commands": ["workbench.action.closeEditorsToTheLeft"]
+    },
   ],
 
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -61,14 +93,6 @@
     {
       "before": ["L"],
       "commands": ["workbench.action.focusSecondEditorGroup"]
-    },
-    {
-      "before": ["p", "]"],
-      "after": [":", "p", "u", "Enter", "e"]
-    },
-    {
-      "before": ["p", "["],
-      "after": ["k", "p", "j"]
     }
   ],
 
@@ -76,19 +100,30 @@
     {
       "before": ["leader", "y"],
       "after": ["\"", "+", "y"]
+    },
+    {
+      "before": ["<leader>", "F"],
+      "commands": ["workbench.action.findInFiles"]
     }
   ],
 
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "before": ["leader", "p"],
-      "after": ["\"", "+", "p"]
+      "before": ["<leader>", "p"],
+      "after": ["\"", "_", "d", "P"]
+    },
+    {
+      "before": ["$"],
+      "after": ["$", "h"]
+    },
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["editor.action.commentLine"]
     }
   ],
 
-  "vim.leader": "<space>",
   "vim.handleKeys": {
-    "<C-d>": true,
+    "<C-d>": false,
     "<C-a>": true,
     "<C-f>": false,
     "<C-z>": false,
@@ -99,29 +134,134 @@
     "<C-w>": false,
     "<C-b>": false,
     "<C-h>": false,
+    "<C-k>": false,
+    "<C-e>": false,
+    "<C-p>": false,
+    "<C-g>": false,
+    "<C-[>": false,
+    "<C-]>": false,
+    "<C-j>": false,
+    "<C-r>": false,
+    "<tab>": false
   },
 
+  /**
+   * Better Defaults
+   **/
+  //    "workbench.action.quickTextSearch": true,
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.emptySelectionClipboard": false,
+  // Open new window with the same size as the previos one, no need to make it larger every single time
+  "window.newWindowDimensions": "inherit",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "files.trimTrailingWhitespace": true,
+  "diffEditor.renderSideBySide": false,
+  "editor.snippetSuggestions": "top",
+  "editor.detectIndentation": false,
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  // Turn of compact folder, easier to create new folder or file inside empty folder
+  "explorer.compactFolders": false,
+  // Configuration for minimap
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.maxColumn": 50,
+  // Show a single tab at a time
+  "workbench.editor.showTabs": "multiple",
+  // Change to false if you want to hide the status bar, which is the bar at the bottom
+  // If using vim extension, leave it as is for keeping track of macros recording, marks setting
+  "workbench.statusBar.visible": true,
+  // No preview mode => open file directly
+  "workbench.editor.enablePreview": false,
+  // Display line number relatively rather than displaying real line number
+  // real line number for current line only => easier for vim movement
+  "editor.fontSize": 18,
+  "editor.lineNumbers": "relative",
+  // When scrolling down, the window automatically moving up
+  // if the cursor is 12 line above the bottom
+  // easier to read
+  "editor.cursorSurroundingLines": 12,
+
+  // Auto save file after a while
+  "files.autoSave": "afterDelay",
+  // Ignore extension recommendation because it's annoying af
+  "extensions.ignoreRecommendations": true,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  // Default formatter for typescript
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  // Default formatter for json, jsonc
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "[python]": {
     "editor.formatOnType": true
   },
-  "workbench.colorTheme": "Dracula Soft",
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "explorer.confirmDragAndDrop": false,
-  "workbench.startupEditor": "none",
-  "liveServer.settings.donotShowInfoMsg": true,
-  "update.showReleaseNotes": false,
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
-  },
-  "explorer.confirmDelete": false,
-  "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.singleQuote": true
+
+  "explorer.confirmDragAndDrop": false,
+  "workbench.startupEditor": "none",
+  "update.showReleaseNotes": false,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "explorer.confirmDelete": false,
+  "prettier.singleQuote": true,
+  // All quote becomes single
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.quoteStyle": "single",
+  // Dark dracula theme
+  "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+  "workbench.preferredHighContrastLightColorTheme": "Visual Studio Dark",
+  "workbench.preferredLightColorTheme": "Visual Studio Dark",
+  "security.workspace.trust.untrustedFiles": "open",
+  "git.openRepositoryInParentFolders": "never",
+  // Stop the cursor going to deep to the bottom of the page, for the ease of reading
+  "prettier.jsxSingleQuote": true,
+  "prettier.useEditorConfig": false,
+  "prettier.trailingComma": "all",
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.unicodeHighlight.allowedLocales": {
+    "cs": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.titleBarStyle": "custom",
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideStatusBar": false,
+
+  // Move side bar to right side
+  "workbench.sideBar.location": "right",
+  // Move activity bar on top of the explorer
+  "workbench.activityBar.location": "top",
+
+  /**
+   * Finding
+   **/
+
+  "search.useIgnoreFiles": true,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/composer.lock": true
+  },
+  "files.eol": "\n",
+  "terminal.integrated.commandsToSkipShell": ["workbench.action.closePanel"],
+"window.commandCenter": false,
+"[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
 }
